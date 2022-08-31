@@ -21,8 +21,6 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
-    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
@@ -49,7 +47,6 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -90,6 +87,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
@@ -789,6 +787,7 @@ ScriptedImporter:
     - {x: 48, y: 47}
     - {x: 0, y: 48}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -888, y: 2804}
   - name: Layer 51
     originalName: 
@@ -1606,6 +1605,7 @@ ScriptedImporter:
     - {x: 50, y: 70}
     - {x: 71, y: 53}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -893, y: 1299}
   - name: Layer 58
     originalName: 
@@ -2106,6 +2106,7 @@ ScriptedImporter:
     - {x: 40, y: 39}
     - {x: 0, y: 40}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1245, y: 2182}
   - name: Layer 50
     originalName: 
@@ -2813,6 +2814,7 @@ ScriptedImporter:
     - {x: 57, y: 56}
     - {x: 0, y: 57}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -821, y: 965}
   - name: Head
     originalName: 
@@ -3620,6 +3622,7 @@ ScriptedImporter:
     - {x: 67, y: 66}
     - {x: 0, y: 67}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1044, y: -129}
   - name: Layer 55
     originalName: 
@@ -4272,6 +4275,7 @@ ScriptedImporter:
     - {x: 52, y: 51}
     - {x: 0, y: 52}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -780, y: 2453}
   - name: Neck
     originalName: 
@@ -4795,6 +4799,7 @@ ScriptedImporter:
     - {x: 43, y: 42}
     - {x: 0, y: 43}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -798, y: 2474}
   - name: Row Body
     originalName: 
@@ -5295,6 +5300,7 @@ ScriptedImporter:
     - {x: 40, y: 39}
     - {x: 36, y: 40}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -981, y: -339}
   - name: Leg-f-band
     originalName: 
@@ -5965,6 +5971,7 @@ ScriptedImporter:
     - {x: 51, y: 50}
     - {x: 0, y: 51}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -712, y: 2457}
   - name: Leg-f-up copy 3
     originalName: 
@@ -6548,6 +6555,7 @@ ScriptedImporter:
     - {x: 44, y: 43}
     - {x: 0, y: 44}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -560, y: 1262}
   - name: Leg-b-band
     originalName: 
@@ -7206,6 +7214,7 @@ ScriptedImporter:
     - {x: 49, y: 48}
     - {x: 0, y: 49}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -992, y: 3180}
   - name: Leg-b-up copy 3
     originalName: 
@@ -7799,6 +7808,7 @@ ScriptedImporter:
     - {x: 44, y: 43}
     - {x: 0, y: 44}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1042, y: 1287}
   - name: Weapon
     originalName: 
@@ -8293,6 +8303,7 @@ ScriptedImporter:
     - {x: 7, y: 8}
     - {x: 14, y: 15}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -746, y: -571}
   - name: Arm-b-down
     originalName: 
@@ -8898,6 +8909,7 @@ ScriptedImporter:
     - {x: 46, y: 45}
     - {x: 0, y: 46}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -692, y: -317}
   - name: Arm-b-up
     originalName: 
@@ -9541,6 +9553,7 @@ ScriptedImporter:
     - {x: 44, y: 43}
     - {x: 4, y: 44}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1458, y: 1914}
   characterData:
     bones:
@@ -9826,7 +9839,6 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -9834,7 +9846,6 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings:
   - name: DefaultTexturePlatform
@@ -9891,7 +9902,6 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   skeletonAssetReferenceID: 
-  padding: 4
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -10120,7 +10130,6 @@ ScriptedImporter:
     isVisible: 1
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
-  importFileNodeState: 1
   generateGOHierarchy: 0
   textureAssetName: TroristCow Texture
   prefabAssetName: TroristCow Prefab

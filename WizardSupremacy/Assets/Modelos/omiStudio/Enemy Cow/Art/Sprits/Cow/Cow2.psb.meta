@@ -21,8 +21,6 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
-    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
@@ -49,7 +47,6 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -90,6 +87,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
@@ -855,6 +853,7 @@ ScriptedImporter:
     - {x: 62, y: 63}
     - {x: 0, y: 63}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 312, y: -1101}
   - name: Arm-f-down
     originalName: 
@@ -1562,6 +1561,7 @@ ScriptedImporter:
     - {x: 37, y: 36}
     - {x: 0, y: 37}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -380, y: 1471}
   - name: Arm-f-down_1
     originalName: 
@@ -2218,6 +2218,7 @@ ScriptedImporter:
     - {x: 46, y: 47}
     - {x: 0, y: 47}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -552, y: 2864}
   - name: Arm-f-up_1
     originalName: 
@@ -2954,6 +2955,7 @@ ScriptedImporter:
     - {x: 47, y: 46}
     - {x: 0, y: 47}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -893, y: 2579}
   - name: Hat
     originalName: 
@@ -3560,6 +3562,7 @@ ScriptedImporter:
     - {x: 46, y: 45}
     - {x: 0, y: 46}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -657, y: 332}
   - name: Head
     originalName: 
@@ -4379,6 +4382,7 @@ ScriptedImporter:
     - {x: 69, y: 68}
     - {x: 69, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1044, y: 1151}
   - name: Dress
     originalName: 
@@ -5154,6 +5158,7 @@ ScriptedImporter:
     - {x: 65, y: 64}
     - {x: 65, y: 58}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1053, y: 1039}
   - name: Neck
     originalName: 
@@ -5697,6 +5702,7 @@ ScriptedImporter:
     - {x: 43, y: 42}
     - {x: 0, y: 43}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -299, y: 74}
   - name: Row Body
     originalName: 
@@ -6197,6 +6203,7 @@ ScriptedImporter:
     - {x: 40, y: 39}
     - {x: 36, y: 40}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -981, y: -339}
   - name: Leg-f-band
     originalName: 
@@ -6885,6 +6892,7 @@ ScriptedImporter:
     - {x: 48, y: 47}
     - {x: 48, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -713, y: 3649}
   - name: Leg-f-down
     originalName: 
@@ -7565,6 +7573,7 @@ ScriptedImporter:
     - {x: 51, y: 50}
     - {x: 0, y: 51}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -230, y: -123}
   - name: Leg-f-up
     originalName: 
@@ -8148,6 +8157,7 @@ ScriptedImporter:
     - {x: 44, y: 43}
     - {x: 0, y: 44}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -560, y: 2542}
   - name: Leg-b-band
     originalName: 
@@ -8826,6 +8836,7 @@ ScriptedImporter:
     - {x: 48, y: 47}
     - {x: 0, y: 48}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -490, y: 1342}
   - name: Leg-b-down
     originalName: 
@@ -9475,6 +9486,7 @@ ScriptedImporter:
     - {x: 50, y: 49}
     - {x: 0, y: 50}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -510, y: 784}
   - name: Leg-b-up
     originalName: 
@@ -10056,6 +10068,7 @@ ScriptedImporter:
     - {x: 42, y: 41}
     - {x: 42, y: 36}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1048, y: 2579}
   - name: Weapon
     originalName: 
@@ -10892,6 +10905,7 @@ ScriptedImporter:
     - {x: 66, y: 65}
     - {x: 66, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1570, y: 570}
   - name: Arm-b-down
     originalName: 
@@ -11387,6 +11401,7 @@ ScriptedImporter:
     - {x: 35, y: 34}
     - {x: 0, y: 35}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -1035, y: 1595}
   - name: Arm-b-up
     originalName: 
@@ -12008,6 +12023,7 @@ ScriptedImporter:
     - {x: 51, y: 50}
     - {x: 51, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -931, y: 551}
   - name: Arm-b-down_1
     originalName: 
@@ -12612,6 +12628,7 @@ ScriptedImporter:
     - {x: 45, y: 44}
     - {x: 0, y: 45}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -962, y: 1858}
   - name: Arm-b-up_1
     originalName: 
@@ -13257,6 +13274,7 @@ ScriptedImporter:
     - {x: 46, y: 45}
     - {x: 46, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -618, y: -371}
   characterData:
     bones:
@@ -13587,7 +13605,6 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -13595,7 +13612,6 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings:
   - name: DefaultTexturePlatform
@@ -13652,7 +13668,6 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   skeletonAssetReferenceID: 
-  padding: 4
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -13971,7 +13986,6 @@ ScriptedImporter:
     isVisible: 0
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
-  importFileNodeState: 1
   generateGOHierarchy: 0
   textureAssetName: Avalieh-Cow 1 Texture
   prefabAssetName: Avalieh-Cow 1 Prefab

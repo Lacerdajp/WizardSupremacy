@@ -21,8 +21,6 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
-    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
@@ -49,7 +47,6 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -90,6 +87,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
@@ -496,6 +494,7 @@ ScriptedImporter:
     - {x: 24, y: 23}
     - {x: 0, y: 24}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -129, y: 494}
   - name: arm front up
     originalName: 
@@ -1010,6 +1009,7 @@ ScriptedImporter:
     - {x: 24, y: 23}
     - {x: 0, y: 24}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 25, y: -424}
   - name: hair side
     originalName: 
@@ -1435,6 +1435,7 @@ ScriptedImporter:
     - {x: 8, y: 35}
     - {x: 36, y: 13}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -134, y: -391}
   - name: hair front
     originalName: 
@@ -1858,6 +1859,7 @@ ScriptedImporter:
     - {x: 32, y: 33}
     - {x: 0, y: 33}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -307, y: 14}
   - name: head
     originalName: 
@@ -2227,6 +2229,7 @@ ScriptedImporter:
     - {x: 29, y: 28}
     - {x: 0, y: 29}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -387, y: -195}
   - name: body
     originalName: 
@@ -2663,6 +2666,7 @@ ScriptedImporter:
     - {x: 30, y: 29}
     - {x: 0, y: 30}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -385, y: -254}
   - name: leg front down
     originalName: 
@@ -3099,6 +3103,7 @@ ScriptedImporter:
     - {x: 26, y: 25}
     - {x: 26, y: 0}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -136, y: 245}
   - name: leg front up
     originalName: 
@@ -3555,6 +3560,7 @@ ScriptedImporter:
     - {x: 26, y: 25}
     - {x: 0, y: 26}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -279, y: 492}
   - name: leg back down
     originalName: 
@@ -4101,6 +4107,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     - {x: 48, y: 23}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -313, y: 447}
   - name: leg back up
     originalName: 
@@ -4626,6 +4633,7 @@ ScriptedImporter:
     - {x: 25, y: 24}
     - {x: 0, y: 25}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -281, y: -130}
   - name: arm back down
     originalName: 
@@ -5060,6 +5068,7 @@ ScriptedImporter:
     - {x: 24, y: 23}
     - {x: 0, y: 24}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -222, y: -323}
   - name: arm back up
     originalName: 
@@ -5574,6 +5583,7 @@ ScriptedImporter:
     - {x: 24, y: 23}
     - {x: 0, y: 24}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -400, y: 439}
   - name: pony tail
     originalName: 
@@ -6373,6 +6383,7 @@ ScriptedImporter:
     - {x: 21, y: 70}
     - {x: 4, y: 71}
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: -338, y: 232}
   characterData:
     bones:
@@ -6649,7 +6660,6 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -6657,7 +6667,6 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings: []
   mosaicLayers: 1
@@ -6670,7 +6679,6 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   skeletonAssetReferenceID: 
-  padding: 4
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -6809,7 +6817,6 @@ ScriptedImporter:
     isVisible: 1
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
-  importFileNodeState: 1
   generateGOHierarchy: 0
   textureAssetName: Skeletal Texture
   prefabAssetName: Skeletal Prefab
