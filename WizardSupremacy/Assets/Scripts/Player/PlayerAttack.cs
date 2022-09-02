@@ -13,18 +13,21 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask EnemyLayers;
     [SerializeField] private int AttackPower;
     private AudioSource som;
+    public PlayerHP hP;
+
 
     private void Awake()
     {
         som = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         mov = GetComponent<PlayerMovement>();
-     }
+        hP = GetComponent<PlayerHP>();
+    }
  
      private void Update()
      {
         cooldowntimer -= cooldowntimer * Time.deltaTime;
-        if(Input.GetMouseButton(0) && cooldowntimer < 0.5)
+        if(Input.GetMouseButton(0) && cooldowntimer < 0.5 && hP.isLive)
         {
             som.Play();
             Attack();

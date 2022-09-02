@@ -17,11 +17,14 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Encostou!");
+       
         if (other.gameObject.CompareTag("Player") && GetComponent<Enemy>().getisAlive() == true)
         {
+            //Debug.Log("Encostou!");
+           
+            //other.gameObject.GetComponent<PlayerMovement>().MovimentDano();
             other.gameObject.GetComponent<PlayerHP>().GetDamage(GetComponent<Enemy>().getDanoInimigo());
-            Debug.Log("Player levou " + GetComponent<Enemy>().getDanoInimigo() + " de dano!");
+            //Debug.Log("Player levou " + GetComponent<Enemy>().getDanoInimigo() + " de dano!");
         }
     }
 }

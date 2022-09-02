@@ -31,6 +31,10 @@ public class SlimeMoviment : MonoBehaviour
 
     void Update()
     {
+        if (Personagem)
+        {
+
+        
         Raycast();
         //distância do jogador
         float distDoPlayer = Vector2.Distance(transform.position, Personagem.position);
@@ -43,6 +47,7 @@ public class SlimeMoviment : MonoBehaviour
         {
             StopChasePlayer();
         }
+       }
     }
 
     void ChasePlayer()
