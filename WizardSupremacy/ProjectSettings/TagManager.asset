@@ -5,18 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Inimigo
+  - Trigger
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Trigger
   - Water
   - UI
-  - 
+  - Inimigo
   - Wall
   - Ground
   - 
-  - Enemy
+  - 
   - 
   - 
   - 
