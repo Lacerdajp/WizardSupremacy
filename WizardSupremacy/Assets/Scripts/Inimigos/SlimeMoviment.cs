@@ -25,7 +25,7 @@ public class SlimeMoviment : MonoBehaviour
 
         XSpeed = 40 * Time.deltaTime;
         YSpeed = 50 * Time.deltaTime;
-        TempoPulo = 4;
+        TempoPulo = 2;
         AgroRange = 4;
     }
 
@@ -38,7 +38,7 @@ public class SlimeMoviment : MonoBehaviour
         Raycast();
         //distância do jogador
         float distDoPlayer = Vector2.Distance(transform.position, Personagem.position);
-        TempoPulo -= TempoPulo * Time.deltaTime;
+        TempoPulo = TempoPulo - TempoPulo * Time.deltaTime;
         if(distDoPlayer < AgroRange)
         {
             ChasePlayer();
@@ -54,18 +54,17 @@ public class SlimeMoviment : MonoBehaviour
     {
         if(Slime.position.x < Personagem.position.x)
         {
-            if(Chao == true && TempoPulo < 4)
+            if(Chao == true && TempoPulo < 2)
             {
                 Slime.velocity = new Vector2(SpeedMov, 0);
                 Slime.AddForce(Vector2.up * YSpeed);
-             
             }
             
         }
         else
         {
             
-            if (Chao == true && TempoPulo < 4)
+            if (Chao == true && TempoPulo < 2)
             {
                 
                 Slime.velocity = new Vector2(-SpeedMov, 0);
@@ -75,7 +74,7 @@ public class SlimeMoviment : MonoBehaviour
 
         if(Chao == false)
         {
-            TempoPulo = 4;
+            TempoPulo = 2;
         }
     }
     void StopChasePlayer()

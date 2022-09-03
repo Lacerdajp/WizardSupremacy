@@ -10,12 +10,10 @@ public class TelaDeMorteManager : MonoBehaviour
 
     public void Renascer()
     {
-        Debug.Log("oi");
         SceneManager.LoadScene(LevelAtual);
     }
     public void VoltarAoMenu()
     {
-        Debug.Log("oi");
         SceneManager.LoadScene(0);
     }
 }
