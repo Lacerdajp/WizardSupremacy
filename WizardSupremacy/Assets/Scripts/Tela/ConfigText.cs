@@ -8,14 +8,12 @@ public class ConfigText : MonoBehaviour
     public static ConfigText instance;
     private bool gameOver=false;
 
-    public GameObject gameOverText;
-    // Start is called before the first frame update
+    public GameObject TelaDeMorte;
     void Start()
     {
         instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,6 +21,6 @@ public class ConfigText : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        gameOverText.SetActive(true);
+        TelaDeMorte.SetActive(true);
     }
 }

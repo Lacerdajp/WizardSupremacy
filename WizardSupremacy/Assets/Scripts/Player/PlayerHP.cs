@@ -39,7 +39,6 @@ public class PlayerHP : MonoBehaviour
         {
             Death();
             
-        
         }
     }
     public void Death()
