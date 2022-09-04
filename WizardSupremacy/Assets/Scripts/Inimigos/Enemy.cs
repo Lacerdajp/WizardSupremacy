@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     [SerializeField] public bool isAlive;
     private int CurrentHP;
+    private SlimeMoviment Mov;
 
     private void Awake()
     {
@@ -18,11 +19,15 @@ public class Enemy : MonoBehaviour
     {
         CurrentHP = MaxHP;
         isAlive = true;
+        Mov = GetComponent<SlimeMoviment>();
     }
 
    void Update()
     {
-        
+        if(!(Mov.isGrounded()) && isAlive == false)
+        {
+            UnityEngine.Object.Destroy(gameObject, 3.5f);
+        }
 
     }
     public void TakeDmg(int damage)
@@ -51,7 +56,6 @@ public class Enemy : MonoBehaviour
         isAlive = false;
 
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-
         GetComponent<Collider2D>().enabled = false;
         
         this.enabled = false;

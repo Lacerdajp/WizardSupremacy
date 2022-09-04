@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float speed;
-    public  PlayerHP hP;
+    public PlayerHP hP;
     private void Awake()
     {
        //Pega as referencias do objeto
