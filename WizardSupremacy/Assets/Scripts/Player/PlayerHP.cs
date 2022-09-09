@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
 
     [SerializeField] public int VidaMax;
     [SerializeField] public int VidaAtual;
+    [SerializeField] private LayerMask EnemyLayer;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxcollider;
@@ -51,4 +52,9 @@ public class PlayerHP : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         ConfigText.instance.GameOver();
     }
+   // private void PlayerKnockback()
+   // {
+   //     RaycastHit2D raycastHit = Physics2D.BoxCast(boxcollider.bounds.center,boxcollider.bounds.size,0,Vector2.down,0.1f,EnemyLayer);
+   //     if(raycastHit !)
+   // }
 }

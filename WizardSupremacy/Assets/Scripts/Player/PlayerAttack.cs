@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float AC = 4;
+    [SerializeField] private float AC;
     private Animator anim;
     private PlayerMovement mov;
-    private float cooldowntimer = 2;
+    private float cooldowntimer = 0;
     public Transform attackpoint;
     [SerializeField] private float range; //= 0.7f;
     [SerializeField] private LayerMask EnemyLayers;
@@ -26,12 +26,12 @@ public class PlayerAttack : MonoBehaviour
  
      private void Update()
      {
-        cooldowntimer -= cooldowntimer * Time.deltaTime;
-        if(Input.GetMouseButton(0) && cooldowntimer < 0.5 && hP.isLive)
+        cooldowntimer -=  Time.deltaTime;
+        if(Input.GetMouseButton(0) && cooldowntimer <= 0 && hP.isLive)
         {
             som.Play();
             Attack();
-            cooldowntimer = 2;
+            cooldowntimer = AC;
         }
     }
 

@@ -8,8 +8,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] int DanoInimigo;
     private Animator anim;
     [SerializeField] public bool isAlive;
+    private Rigidbody2D rb;
+    public float knockback = 10;
+    public float knockbackup = 2;
     private int CurrentHP;
     private SlimeMoviment Mov;
+    public Transform Player;
 
     private void Awake()
     {
@@ -17,6 +21,7 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         CurrentHP = MaxHP;
         isAlive = true;
         Mov = GetComponent<SlimeMoviment>();
@@ -35,6 +40,7 @@ public class Enemy : MonoBehaviour
         CurrentHP -= damage;
 
         anim.SetTrigger("Hurt");
+        KnockBack();
 
         if(CurrentHP <= 0)
         {
@@ -64,5 +70,9 @@ public class Enemy : MonoBehaviour
     public bool getisAlive()
     {
         return isAlive;
+    }
+    private void KnockBack(){
+        Vector2 knockbackDirection = new Vector2(transform.position.x - Player.transform.position.x,0);
+        rb.velocity = new Vector2(knockbackDirection.x,knockbackup)* knockback;
     }
 }

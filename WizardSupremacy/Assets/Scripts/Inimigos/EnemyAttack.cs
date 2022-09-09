@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-
+    public PlayerMovement playerMovement;
     void Start()
     {
     }
@@ -20,6 +20,15 @@ public class EnemyAttack : MonoBehaviour
        
         if (other.gameObject.CompareTag("Player") && GetComponent<Enemy>().getisAlive() == true)
         {
+            playerMovement.KBcounter = playerMovement.KBtotaltime;
+            if(other.transform.position.x <= transform.position.x)
+            {
+                playerMovement.KockFromRight = true;
+            }
+            if(other.transform.position.x >= transform.position.x)
+            {
+                playerMovement.KockFromRight = false;
+            }
             other.gameObject.GetComponent<PlayerHP>().GetDamage(GetComponent<Enemy>().getDanoInimigo());
         }
     }

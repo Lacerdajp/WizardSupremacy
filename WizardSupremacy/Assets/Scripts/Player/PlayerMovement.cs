@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxcollider;
     private bool facingRight = true;
+    public float KBforce;
+    public float KBcounter;
+    public float KBtotaltime;
+    public bool KockFromRight;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float speed;
@@ -24,7 +28,24 @@ public class PlayerMovement : MonoBehaviour
     {
             
             float HorizontalInput = Input.GetAxis("Horizontal");
-            body.velocity = new Vector2(HorizontalInput * speed, body.velocity.y);
+            if(KBcounter <= 0)
+            {
+                body.velocity = new Vector2(HorizontalInput * speed, body.velocity.y);
+            }
+            else
+            {
+                if(KockFromRight == true)
+                {
+                     body.velocity = new Vector2(-KBforce, 1);
+ 
+                }
+                if(KockFromRight == false)
+                {
+                    body.velocity = new Vector2(KBforce, 1);
+                }
+                KBcounter -= Time.deltaTime;
+            }
+            
             //mudar a direcao do jogador (direita e esquerda)
             if (HorizontalInput > 0.01f && !facingRight && hP.isLive)
             {
@@ -66,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxcollider.bounds.center,boxcollider.bounds.size,0,Vector2.down,0.1f,groundLayer);
         return raycastHit.collider != null;
     }
+    
     //public void MovimentDano()
     //{
         

@@ -37,7 +37,7 @@ public class SlimeMoviment : MonoBehaviour
         {
             if (Personagem)
             {
-                //distância do jogador
+                //distï¿½ncia do jogador
                 float distDoPlayer = Vector2.Distance(transform.position, Personagem.position);
                 TempoPulo = TempoPulo - TempoPulo * Time.deltaTime;
                 //Flip Slime
@@ -54,7 +54,7 @@ public class SlimeMoviment : MonoBehaviour
                 {
                     ChasePlayer();
                 }
-                //Slime não persegue
+                //Slime nï¿½o persegue
                 else
                 {
                     StopChasePlayer();
@@ -108,4 +108,5 @@ public class SlimeMoviment : MonoBehaviour
         transform.localScale = currentscale;
         facingRight = !facingRight;
     }
+
 }
