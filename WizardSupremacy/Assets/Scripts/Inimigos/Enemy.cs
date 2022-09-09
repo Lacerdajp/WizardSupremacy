@@ -15,6 +15,12 @@ public class Enemy : MonoBehaviour
     private SlimeMoviment Mov;
     public Transform Player;
 
+    public Transform barraVerde;
+    public GameObject objetoBarra;
+
+    private Vector3 escalaBarra;
+    private float percentual;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -25,7 +31,11 @@ public class Enemy : MonoBehaviour
         CurrentHP = MaxHP;
         isAlive = true;
         Mov = GetComponent<SlimeMoviment>();
+        escalaBarra = barraVerde.localScale;
+        percentual = escalaBarra.x/CurrentHP;
+
     }
+   
 
    void Update()
     {
@@ -35,10 +45,15 @@ public class Enemy : MonoBehaviour
         }
 
     }
+    void UpdateBarra()
+    {
+        escalaBarra.x = percentual * CurrentHP;
+        barraVerde.localScale= escalaBarra;
+    }
     public void TakeDmg(int damage)
     {
         CurrentHP -= damage;
-
+        UpdateBarra();
         anim.SetTrigger("Hurt");
         KnockBack();
 
@@ -62,6 +77,7 @@ public class Enemy : MonoBehaviour
         isAlive = false;
 
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        UnityEngine.Object.Destroy(gameObject, 1f);
         GetComponent<Collider2D>().enabled = false;
         
         this.enabled = false;

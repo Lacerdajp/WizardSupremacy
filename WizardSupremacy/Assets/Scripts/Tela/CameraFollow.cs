@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private float FollowSpeed = 2f;
-    [SerializeField] private float yOffset = 1f;
+    [SerializeField] private float minimoX;
+    [SerializeField] private float minimoY;
+    [SerializeField] private float maximoX;
+    [SerializeField] private float maximoY;
     public Transform target;
 
-
+    private void Start()
+    {
+        
+    }
     void Update()
     {
-        if(target != null){
-            Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset,-10f);
-            transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
-        }
+       transform.position=new Vector3(Mathf.Clamp(target.position.x,minimoX,maximoX),Mathf.Clamp(target.position.y,minimoY,maximoY),transform.position.z);
+       
     }
 }

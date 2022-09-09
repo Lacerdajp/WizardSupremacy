@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxcollider;
     private bool facingRight = true;
-    public float KBforce;
+    [SerializeField]  private float KBforce=3;
     public float KBcounter;
     public float KBtotaltime;
     public bool KockFromRight;
@@ -36,12 +36,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if(KockFromRight == true)
                 {
-                     body.velocity = new Vector2(-KBforce, 1);
+                       
+                     body.AddForce( new Vector2(-KBforce, 0.8f),ForceMode2D.Impulse);
  
                 }
                 if(KockFromRight == false)
                 {
-                    body.velocity = new Vector2(KBforce, 1);
+                body.AddForce( new Vector2(KBforce, 0.8f), ForceMode2D.Impulse);
                 }
                 KBcounter -= Time.deltaTime;
             }
