@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-         body.velocity = new Vector2(body.velocity.x,speed); 
+         body.velocity = new Vector2(body.velocity.x,15); 
          anim.SetTrigger("Jump");
     }
 

@@ -71,7 +71,7 @@ public class SlimeMoviment : MonoBehaviour
             
             if (isGrounded() && TempoPulo < 2)
             {
-                Slime.velocity = new Vector2(SpeedMov, 5);
+                Slime.velocity = new Vector2(SpeedMov, 0);
                 Slime.AddForce(Vector2.up * YSpeed);
             }
             
@@ -82,7 +82,7 @@ public class SlimeMoviment : MonoBehaviour
             if (isGrounded() && TempoPulo < 2)
             {
                 
-                Slime.velocity = new Vector2(-SpeedMov, 5);
+                Slime.velocity = new Vector2(-SpeedMov, 0);
                 Slime.AddForce(Vector2.up * YSpeed);
             }
         }
