@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class ConfigText : MonoBehaviour
 {
     public static ConfigText instance;
-    private bool gameOver=false;
 
     public GameObject TelaDeMorte;
     void Start()
@@ -20,7 +19,6 @@ public class ConfigText : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOver = true;
         TelaDeMorte.SetActive(true);
     }
 }

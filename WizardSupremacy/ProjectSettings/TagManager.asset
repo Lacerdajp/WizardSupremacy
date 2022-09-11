@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Inimigo
   - Trigger
+  - "Proj\xE9til"
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Inimigo
   - Wall
   - Ground
-  - 
-  - 
+  - "Proj\xE9til"
+  - PostProcessing
   - 
   - 
   - 
@@ -41,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 4073851001
+    locked: 0
+  - name: "Atr\xE1s"
+    uniqueID: 143826205
+    locked: 0
+  - name: ParedesDeFundo
+    uniqueID: 2332157823
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
