@@ -51,6 +51,15 @@ TagManager:
   - name: ParedesDeFundo
     uniqueID: 2332157823
     locked: 0
+  - name: "Ch\xE3o"
+    uniqueID: 1274648065
+    locked: 0
+  - name: Paredes
+    uniqueID: 1950886227
+    locked: 0
+  - name: Objetos
+    uniqueID: 4201249909
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

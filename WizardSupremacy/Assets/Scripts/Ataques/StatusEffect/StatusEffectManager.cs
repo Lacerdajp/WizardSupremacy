@@ -43,9 +43,7 @@ public class StatusEffectManager : MonoBehaviour
     IEnumerator BurnDamage()
     {
         GetComponent<Enemy>().sprite.color = Color.red;
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         yield return new WaitForSeconds(0.3f);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         GetComponent<Enemy>().sprite.color = Color.white;
     }
 }
