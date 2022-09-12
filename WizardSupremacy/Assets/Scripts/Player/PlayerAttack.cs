@@ -64,7 +64,10 @@ public class PlayerAttack : MonoBehaviour
             foreach(Collider2D enemy in hitenemies)
             {
                 Debug.Log("toma filha da puta " + enemy.name);
-
+                if (enemy.GetComponent<StatusEffectManager>() != null)
+                {
+                    enemy.GetComponent<StatusEffectManager>().ApplyBurn(2);
+                }
                 enemy.GetComponent<Enemy>().TakeDmg(AttackPower);
             }
     }

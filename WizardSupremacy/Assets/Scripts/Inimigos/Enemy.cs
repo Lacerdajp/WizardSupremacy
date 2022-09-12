@@ -9,9 +9,10 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     [SerializeField] public bool isAlive;
     private Rigidbody2D rb;
+    public SpriteRenderer sprite;
     public float knockback = 10;
     public float knockbackup = 2;
-    private int CurrentHP;
+    public int CurrentHP;
     private SlimeMoviment Mov;
     public Transform Player;
 
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -43,25 +45,29 @@ public class Enemy : MonoBehaviour
         {
             UnityEngine.Object.Destroy(gameObject, 3.5f);
         }
-
+        if (CurrentHP <= 0)
+        {
+            Die();
+        }
+        UpdateBarra();
     }
     void UpdateBarra()
     {
-        escalaBarra.x = percentual * CurrentHP;
-        barraVerde.localScale= escalaBarra;
+        if (CurrentHP > 0)
+        {
+            escalaBarra.x = percentual * CurrentHP;
+            barraVerde.localScale = escalaBarra;
+        }
+        else
+        {
+            escalaBarra.x = 0;
+            barraVerde.localScale = escalaBarra;
+        }
     }
     public void TakeDmg(int damage)
     {
         CurrentHP -= damage;
-        UpdateBarra();
         anim.SetTrigger("Hurt");
-        KnockBack();
-
-        if(CurrentHP <= 0)
-        {
-            Die();
-        }
-
     }
     
     public int getDanoInimigo()
@@ -77,7 +83,7 @@ public class Enemy : MonoBehaviour
         isAlive = false;
 
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-        UnityEngine.Object.Destroy(gameObject, 1f);
+        Destroy(gameObject, 1f);
         GetComponent<Collider2D>().enabled = false;
         
         this.enabled = false;

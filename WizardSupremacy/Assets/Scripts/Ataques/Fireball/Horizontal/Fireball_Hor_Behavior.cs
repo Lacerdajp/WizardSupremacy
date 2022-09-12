@@ -7,6 +7,7 @@ public class Fireball_Hor_Behavior : MonoBehaviour
 {   
     private AudioSource Som;
     private CircleCollider2D CircleCollider2D;
+    private Enemy enemy;
     [SerializeField] private LayerMask EnemyLayers;
     private int AttackPower = 10;
 
@@ -16,7 +17,6 @@ public class Fireball_Hor_Behavior : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(this.transform.position);
         Som.Play();
         GetComponent<Rigidbody2D>().AddForce(transform.right * 800);
         Destroy(gameObject, 2);
@@ -29,6 +29,10 @@ public class Fireball_Hor_Behavior : MonoBehaviour
             foreach (Collider2D enemy in hitenemies)
             {
                 enemy.GetComponent<Enemy>().TakeDmg(AttackPower);
+                if (enemy.GetComponent<StatusEffectManager>() != null)
+                {
+                    enemy.GetComponent<StatusEffectManager>().ApplyBurn(5);
+                }
             }
             Destroy(gameObject);
         }
