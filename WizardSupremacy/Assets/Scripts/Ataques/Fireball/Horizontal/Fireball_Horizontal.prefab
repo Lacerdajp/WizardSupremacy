@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 33369ad3eff6837498efc4734df841b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1eb863306f362489f896882158c1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range_AttackPoint: {fileID: 6339306689656365535}
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 64
