@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxcollider;
+    private EdgeCollider2D edjecollider;
     private bool facingRight = true;
     [SerializeField]  private float KBforce=3;
     public float KBcounter;
@@ -85,8 +86,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxcollider.bounds.center,boxcollider.bounds.size,0,Vector2.down,0.1f,groundLayer);
-        return raycastHit.collider != null;
+
+        //RaycastHit2D raycastHit = Physics2D.BoxCast(edjecollider.bounds.center, edjecollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit1 = Physics2D.BoxCast(boxcollider.bounds.center,boxcollider.bounds.size,0,Vector2.down,0.1f,groundLayer);
+        
+            return raycastHit1.collider != null;
+
+        
     }
     
     //public void MovimentDano()

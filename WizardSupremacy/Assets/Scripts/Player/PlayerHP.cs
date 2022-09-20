@@ -15,6 +15,13 @@ public class PlayerHP : MonoBehaviour
     private BoxCollider2D boxcollider;
     public bool isLive;
 
+    public Transform barra;
+    public GameObject objetoBarra;
+
+    private Vector3 escalaBarra;
+    private float percentual;
+
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -25,10 +32,25 @@ public class PlayerHP : MonoBehaviour
     {
         VidaAtual = VidaMax;
         isLive = true;
+        escalaBarra = barra.localScale;
+        percentual = escalaBarra.x / VidaAtual;
     }
     void Update()
     {
-        
+        UpdateBarra();
+    }
+    void UpdateBarra()
+    {
+        if (VidaAtual > 0)
+        {
+            escalaBarra.x = percentual * VidaAtual;
+            barra.localScale = escalaBarra;
+        }
+        else
+        {
+            escalaBarra.x = 0;
+            barra.localScale = escalaBarra;
+        }
     }
 
     public void GetDamage(int Dano)
