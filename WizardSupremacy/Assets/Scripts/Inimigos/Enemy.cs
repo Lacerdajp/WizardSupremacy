@@ -1,47 +1,91 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int MaxHP;
-    [SerializeField] int DanoInimigo;
-    private Animator anim;
-    [SerializeField] public bool isAlive;
-    private Rigidbody2D rb;
-    public SpriteRenderer sprite;
+
+    [SerializeField] int MaxHP; //VidaMAxima
+    [SerializeField] int DanoInimigo;//DanoGerado
+    public Transform Player; //jogador
+    [SerializeField] public bool isAlive;//VerificaSe está vivo
+    private Rigidbody2D rb;//fisica a se alterar
     public float knockback = 10;
     public float knockbackup = 2;
-    public int CurrentHP;
-    private SlimeMoviment Mov;
-    public Transform Player;
-
+    [SerializeField] float AgroRange;
+    [SerializeField] private LayerMask groundLayer;
     public Transform barraVerde;
     public GameObject objetoBarra;
+    [SerializeField] float SpeedMov;
 
+
+    private SpriteRenderer sprite;
+    //private SlimeMoviment Mov;
+    private int CurrentHP;//HPAtual
+    private Animator anim;//animação
     private Vector3 escalaBarra;
     private float percentual;
+    private BoxCollider2D boxcollider;
+    //[SerializeField] Transform Personagem;
+    private bool facingRight = false;
+    private float TempoPulo;
+    private float YSpeed;
+    
+
+    public int CurrentHP1 { get => CurrentHP; set => CurrentHP = value; }
+    public SpriteRenderer Sprite { get => sprite; set => sprite = value; }
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         CurrentHP = MaxHP;
         isAlive = true;
-        Mov = GetComponent<SlimeMoviment>();
+        //Mov = GetComponent<SlimeMoviment>();
         escalaBarra = barraVerde.localScale;
         percentual = escalaBarra.x/CurrentHP;
+        boxcollider = GetComponent<BoxCollider2D>();
+        TempoPulo = 2;
+        YSpeed = 50 * Time.deltaTime;
+        sprite = GetComponent<SpriteRenderer>();
 
     }
    
 
    void Update()
     {
-        if(!(Mov.isGrounded()) && isAlive == false)
+        if (isAlive)
+        {
+            if (Player)
+            {
+                //dist�ncia do jogador
+                float distDoPlayer = Vector2.Distance(transform.position, Player.position);
+                TempoPulo = TempoPulo - TempoPulo * Time.deltaTime;
+                //Flip
+                if (rb.position.x < Player.position.x && !facingRight)
+                {
+                    Flip();
+                }
+                else if (rb.position.x > Player.position.x && facingRight)
+                {
+                    Flip();
+                }
+                //Persegue
+                if (distDoPlayer < AgroRange)
+                {
+                    ChasePlayer();
+                }
+                //n�o persegue
+                else
+                {
+                    StopChasePlayer();
+                }
+            }
+        }
+        if (!(isGrounded()) && isAlive == false)
         {
             UnityEngine.Object.Destroy(gameObject, 3.5f);
         }
@@ -96,5 +140,50 @@ public class Enemy : MonoBehaviour
     private void KnockBack(){
         Vector2 knockbackDirection = new Vector2(transform.position.x - Player.transform.position.x,0);
         rb.velocity = new Vector2(knockbackDirection.x,knockbackup)* knockback;
+    }
+    public bool isGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxcollider.bounds.center, boxcollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
+    }
+    private void Flip()
+    {
+        Vector3 currentscale = transform.localScale;
+        currentscale.x *= -1;
+        transform.localScale = currentscale;
+        facingRight = !facingRight;
+    }
+    //altera de acordo com  o vilão
+    void ChasePlayer()
+    {
+        if (rb.position.x < Player.position.x)
+        {
+
+            if (isGrounded() && TempoPulo < 2)
+            {
+                rb.velocity = new Vector2(SpeedMov, 0);
+                rb.AddForce(Vector2.up * YSpeed);
+            }
+
+        }
+        else
+        {
+
+            if (isGrounded() && TempoPulo < 2)
+            {
+
+                rb.velocity = new Vector2(-SpeedMov, 0);
+                rb.AddForce(Vector2.up * YSpeed);
+            }
+        }
+
+        if (isGrounded())
+        {
+            TempoPulo = 2;
+        }
+    }
+    void StopChasePlayer()
+    {
+        rb.velocity = new Vector2(0, -1);
     }
 }

@@ -35,15 +35,15 @@ public class StatusEffectManager : MonoBehaviour
             }
             StartCoroutine(BurnDamage());
             Debug.Log(enemy.name + "Queimou 1 de dano!");
-            enemy.CurrentHP -= 1;
+            enemy.CurrentHP1 -= 1;
             burnTickTimers.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(0.75f);
         }
     }
     IEnumerator BurnDamage()
     {
-        GetComponent<Enemy>().sprite.color = Color.red;
+        GetComponent<Enemy>().Sprite.color = Color.red;
         yield return new WaitForSeconds(0.3f);
-        GetComponent<Enemy>().sprite.color = Color.white;
+        GetComponent<Enemy>().Sprite.color = Color.white;
     }
 }
