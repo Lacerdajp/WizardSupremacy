@@ -5,10 +5,10 @@ using UnityEngine;
 public class FlechaBehavior : MonoBehaviour
 {
     private AudioSource Som;
-    private CircleCollider2D CircleCollider2D;
-    private PlayerHP hP;
-    [SerializeField] private LayerMask EnemyLayers;
-    private int AttackPower = 5;
+    private CircleCollider2D Circle;
+    [SerializeField] private LayerMask PlayerLayer;
+    [SerializeField] private int AttackPower = 5;
+    [SerializeField] private float SpeedX;
 
     private void Awake()
     {
@@ -17,18 +17,21 @@ public class FlechaBehavior : MonoBehaviour
     void Start()
     {
         Som.Play();
-        GetComponent<Rigidbody2D>().AddForce(transform.right * 800);
-        Destroy(gameObject, 2);
+        Circle = GetComponent<CircleCollider2D>();
+        GetComponent<Rigidbody2D>().AddForce(transform.right * SpeedX);
+        Destroy(gameObject, 5);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Ground"))
+        if (collision.CompareTag("Player"))
         {
-            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(this.transform.position, GetComponent<CircleCollider2D>().radius, EnemyLayers);
-            foreach (Collider2D hP in hitenemies)
-            {
-                hP.GetComponent<PlayerHP>().GetDamage(AttackPower);
-            }
+            Collider2D hitplayer = collision.GetComponent<Collider2D>();
+            hitplayer.GetComponent<PlayerHP>().GetDamage(AttackPower);
+
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Ground"))
+        {
             Destroy(gameObject);
         }
 

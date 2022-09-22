@@ -26,10 +26,11 @@ public class PlayerHP : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        boxcollider = GetComponent<BoxCollider2D>();
+
     }
     void Start()
     {
+        boxcollider = GetComponent<BoxCollider2D>();
         VidaAtual = VidaMax;
         isLive = true;
         escalaBarra = barra.localScale;

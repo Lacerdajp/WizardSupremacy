@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5812354037701949645}
   - component: {fileID: -6517835693330868648}
   - component: {fileID: 266536566144926083}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flecha
-  m_TagString: Untagged
+  m_TagString: "Proj\xE9til"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1678339605229657505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.19500002, y: -0.17333333, z: 0}
-  m_LocalScale: {x: 1.6666667, y: 1, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d27eac55d92ca443b5f1600d2562c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLayers:
+  PlayerLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
+  AttackPower: 5
+  SpeedX: 1000
 --- !u!82 &5812354037701949645
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
+  m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -230,9 +232,9 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.165

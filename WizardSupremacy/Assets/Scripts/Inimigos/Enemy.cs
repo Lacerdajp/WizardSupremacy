@@ -156,7 +156,7 @@ public class Enemy : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxcollider.bounds.center, boxcollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
-    private void Flip()
+    public void Flip()
     {
         Vector3 currentscale = transform.localScale;
         currentscale.x *= -1;

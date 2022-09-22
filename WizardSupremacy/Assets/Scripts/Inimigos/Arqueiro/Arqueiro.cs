@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Arqueiro : Enemy
 {
     private float TempoAtaque;
-    public bool flag = false;
+    private bool flag = false;
+    private float flecha_cooldown = 3;
+    private float flecha_cooldowntimer = 3;
+    public Transform Flecha;
+    public Transform pivot;
 
+    public bool Flag { get => flag; set => flag = value; }
     public override void Start()
     {
         base.Start();
@@ -16,6 +23,7 @@ public class Arqueiro : Enemy
     {
         base.Update();
         TempoAtaque -= Time.deltaTime;
+        flecha_cooldowntimer -= Time.deltaTime;
     }
     public override void ChasePlayer()
     {
@@ -56,8 +64,10 @@ public class Arqueiro : Enemy
             if(TempoAtaque < 0)
             {
                 anim.SetTrigger("Attack");
-                flag = true;
+                Flag = true;
+                Spawn();
                 TempoAtaque = 3;
+                
             }
             
         }
@@ -68,5 +78,24 @@ public class Arqueiro : Enemy
     {
         anim.SetBool("IsRunning", false);
         rb.velocity = new Vector2(0, -1);
+    }
+    void Spawn()
+    {
+        if (Flag == true)
+        {
+            StartCoroutine(AtirarFlecha(1));
+        }
+    }
+    IEnumerator AtirarFlecha(float _delay = 0)
+    {
+        yield return new WaitForSeconds(_delay);
+        //Spawn Flecha
+        if (flecha_cooldowntimer < 0)
+        {
+            Transform obj = Instantiate(Flecha, pivot.position, transform.rotation);
+            obj.right = Vector2.right * GetComponent<Arqueiro>().Side;
+            flecha_cooldowntimer = flecha_cooldown;
+        }
+        Flag = false;
     }
 }
