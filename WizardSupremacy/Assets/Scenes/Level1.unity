@@ -888,9 +888,9 @@ GameObject:
   - component: {fileID: 150999788}
   - component: {fileID: 150999787}
   - component: {fileID: 150999789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arqueiro
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -903,11 +903,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150999783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.5, y: 1.1, z: 0}
+  m_LocalPosition: {x: 2.64, y: -0.73, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2004809172}
+  - {fileID: 1545795791}
   m_Father: {fileID: 740438789}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1046,15 +1047,22 @@ MonoBehaviour:
   DanoInimigo: 10
   Player: {fileID: 1078020892}
   isAlive: 0
+  rb: {fileID: 0}
   knockback: 3
   knockbackup: 2
-  AgroRange: 10
+  AgroRange: 100
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   barraVerde: {fileID: 1382075428}
   objetoBarra: {fileID: 150999783}
-  SpeedMov: 1
+  SpeedMov: 4
+  JumpSpeed: 0
+  CurrentHP: 0
+  anim: {fileID: 0}
+  boxcollider: {fileID: 150999787}
+  playerInRange: 0
+  distDoPlayer: 0
 --- !u!1 &168975197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1380,7 @@ GameObject:
   - component: {fileID: 176687481}
   - component: {fileID: 176687485}
   - component: {fileID: 176687484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GuerreiroSkull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,6 +1742,7 @@ MonoBehaviour:
   DanoInimigo: 8
   Player: {fileID: 1078020892}
   isAlive: 0
+  rb: {fileID: 0}
   knockback: 3
   knockbackup: 2
   AgroRange: 10
@@ -1743,6 +1752,12 @@ MonoBehaviour:
   barraVerde: {fileID: 1876533061}
   objetoBarra: {fileID: 1614653073}
   SpeedMov: 2
+  JumpSpeed: 0
+  CurrentHP: 0
+  anim: {fileID: 0}
+  boxcollider: {fileID: 0}
+  playerInRange: 0
+  distDoPlayer: 0
 --- !u!95 &252909345
 Animator:
   serializedVersion: 4
@@ -11343,7 +11358,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: c12a4da67908d2f21d9d92087fe7018b0196f94b5329487475fc69fa00000000
+  m_ApplyToSortingLayers: c12a4da67908d2f21d9d92087fe7018b0196f94b5329487475fc69fa000000000f526aa6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -11515,7 +11530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723504500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8422376, y: 0.51756984, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12322,9 +12337,9 @@ GameObject:
   - component: {fileID: 848836916}
   - component: {fileID: 848836919}
   - component: {fileID: 848836918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skull
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12490,8 +12505,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868414665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.5, y: -0.95, z: 0.6129999}
-  m_LocalScale: {x: 3.7985554, y: 1.8311261, z: 1}
+  m_LocalPosition: {x: 34.5, y: -0.95, z: 1}
+  m_LocalScale: {x: 3.79, y: 1.83, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 483619749}
@@ -13865,7 +13880,7 @@ MonoBehaviour:
   KockFromRight: 0
   wallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -13948,7 +13963,7 @@ MonoBehaviour:
   VidaAtual: 0
   EnemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isLive: 0
   barra: {fileID: 1810680028}
   objetoBarra: {fileID: 893607509}
@@ -21570,7 +21585,7 @@ GameObject:
   - component: {fileID: 1496904723}
   - component: {fileID: 1496904729}
   - component: {fileID: 1496904731}
-  - component: {fileID: 1496904732}
+  - component: {fileID: 1496904733}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Inimigo
@@ -21740,7 +21755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burnTickTimers: 
---- !u!114 &1496904732
+--- !u!114 &1496904733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21749,13 +21764,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496904722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d4002191b0efc4b9eaaf8cc118ed17, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ed10a4737502274ea98c0b63695f005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 20
   DanoInimigo: 4
   Player: {fileID: 1078020892}
   isAlive: 0
+  rb: {fileID: 1496904725}
   knockback: 3
   knockbackup: 2
   AgroRange: 10
@@ -21765,6 +21781,14 @@ MonoBehaviour:
   barraVerde: {fileID: 1714939989}
   objetoBarra: {fileID: 1037396343}
   SpeedMov: 3
+  JumpSpeed: 3
+  CurrentHP: 0
+  anim: {fileID: 0}
+  boxcollider: {fileID: 1496904724}
+  playerInRange: 0
+  distDoPlayer: 0
+  SpeedY: 0
+  SpeedX: 0
 --- !u!1 &1514788039
 GameObject:
   m_ObjectHideFlags: 0
@@ -21933,6 +21957,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1545795790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545795791}
+  - component: {fileID: 1545795792}
+  m_Layer: 6
+  m_Name: SaidaFlecha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545795791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545795790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150999784}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545795792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545795790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66039256e5cfd104dab266ae6f7c9bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Flecha: {fileID: 1678339605229657504, guid: 27c1efa18d2bba44a951abb224e1b73a, type: 3}
+  pivot: {fileID: 1545795791}
 --- !u!1 &1551202787
 GameObject:
   m_ObjectHideFlags: 0

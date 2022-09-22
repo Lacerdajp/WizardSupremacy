@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,38 +10,39 @@ public class Enemy : MonoBehaviour
     [SerializeField] int MaxHP; //VidaMAxima
     [SerializeField] int DanoInimigo;//DanoGerado
     public Transform Player; //jogador
-    [SerializeField] public bool isAlive;//VerificaSe está vivo
-    private Rigidbody2D rb;//fisica a se alterar
+    public bool isAlive;//VerificaSe está vivo
+    public Rigidbody2D rb;//fisica a se alterar
     public float knockback = 10;
     public float knockbackup = 2;
     [SerializeField] float AgroRange;
     [SerializeField] private LayerMask groundLayer;
     public Transform barraVerde;
     public GameObject objetoBarra;
-    [SerializeField] float SpeedMov;
+    [SerializeField] public float SpeedMov;
+    public float JumpSpeed;
+    private int side;
 
 
     private SpriteRenderer sprite;
-    //private SlimeMoviment Mov;
-    private int CurrentHP;//HPAtual
-    private Animator anim;//animação
+    [SerializeField] int CurrentHP;//HPAtual
+    public Animator anim;//animação
     private Vector3 escalaBarra;
     private float percentual;
-    private BoxCollider2D boxcollider;
-    //[SerializeField] Transform Personagem;
+    public BoxCollider2D boxcollider;
     private bool facingRight = false;
-    private float TempoPulo;
-    private float YSpeed;
+    public int playerInRange;
+    public float distDoPlayer;
     
 
     public int CurrentHP1 { get => CurrentHP; set => CurrentHP = value; }
     public SpriteRenderer Sprite { get => sprite; set => sprite = value; }
+    public int Side { get => side; set => side = value; }
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
     }
-    void Start()
+    virtual public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         CurrentHP = MaxHP;
@@ -48,47 +51,54 @@ public class Enemy : MonoBehaviour
         escalaBarra = barraVerde.localScale;
         percentual = escalaBarra.x/CurrentHP;
         boxcollider = GetComponent<BoxCollider2D>();
-        TempoPulo = 2;
-        YSpeed = 50 * Time.deltaTime;
+        JumpSpeed = 50 * Time.deltaTime;
+        side = -1;
         sprite = GetComponent<SpriteRenderer>();
+        playerInRange = 0;
 
     }
    
 
-   void Update()
+   virtual public void Update()
     {
         if (isAlive)
         {
             if (Player)
             {
-                //dist�ncia do jogador
-                float distDoPlayer = Vector2.Distance(transform.position, Player.position);
-                TempoPulo = TempoPulo - TempoPulo * Time.deltaTime;
+                //distancia do jogador
+                distDoPlayer = Vector2.Distance(transform.position, Player.position);
+
                 //Flip
                 if (rb.position.x < Player.position.x && !facingRight)
                 {
                     Flip();
+                    side = 1;
                 }
                 else if (rb.position.x > Player.position.x && facingRight)
                 {
                     Flip();
+                    side = -1;
                 }
                 //Persegue
                 if (distDoPlayer < AgroRange)
                 {
+                    playerInRange = 1;
                     ChasePlayer();
                 }
-                //n�o persegue
+                //nao persegue
                 else
                 {
+                    playerInRange = 0;
                     StopChasePlayer();
                 }
             }
         }
+
         if (!(isGrounded()) && isAlive == false)
         {
             UnityEngine.Object.Destroy(gameObject, 3.5f);
         }
+
         if (CurrentHP <= 0)
         {
             Die();
@@ -127,7 +137,7 @@ public class Enemy : MonoBehaviour
         isAlive = false;
 
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 3f);
         GetComponent<Collider2D>().enabled = false;
         
         this.enabled = false;
@@ -154,36 +164,25 @@ public class Enemy : MonoBehaviour
         facingRight = !facingRight;
     }
     //altera de acordo com  o vilão
-    void ChasePlayer()
+    virtual public void ChasePlayer()
     {
+        anim.SetBool("IsRunning", true);
         if (rb.position.x < Player.position.x)
         {
-
-            if (isGrounded() && TempoPulo < 2)
-            {
-                rb.velocity = new Vector2(SpeedMov, 0);
-                rb.AddForce(Vector2.up * YSpeed);
-            }
+            rb.velocity = new Vector2(SpeedMov, 0);
+            rb.AddForce(Vector2.up * JumpSpeed);
 
         }
         else
         {
-
-            if (isGrounded() && TempoPulo < 2)
-            {
-
-                rb.velocity = new Vector2(-SpeedMov, 0);
-                rb.AddForce(Vector2.up * YSpeed);
-            }
+            rb.velocity = new Vector2(-SpeedMov, 0);
+            rb.AddForce(Vector2.up * JumpSpeed);
         }
 
-        if (isGrounded())
-        {
-            TempoPulo = 2;
-        }
     }
-    void StopChasePlayer()
+        void StopChasePlayer()
     {
+        anim.SetBool("IsRunning", false);
         rb.velocity = new Vector2(0, -1);
     }
 }
