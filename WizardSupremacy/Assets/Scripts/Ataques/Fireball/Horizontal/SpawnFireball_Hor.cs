@@ -26,9 +26,15 @@ public class SpawnFireball_Hor : MonoBehaviour
         Fireball_cooldowntimer -= Time.deltaTime;
         if (Input.GetMouseButton(1) && Fireball_cooldowntimer <= 0 && hP.isLive)
         {
+            StartCoroutine(Delay());
             Transform obj = Instantiate(Fireball, pivot.position, transform.rotation);
             obj.right = Vector2.right * side;
             Fireball_cooldowntimer = Fireball_cooldown;
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.4f);
     }
 }
