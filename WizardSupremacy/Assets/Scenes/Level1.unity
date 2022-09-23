@@ -987,7 +987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150999783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.11, y: -0.93, z: 0}
+  m_LocalPosition: {x: 96.1, y: -0.8, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1127,14 +1127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b34609790a161489b8a9e71de13d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 20
+  MaxHP: 30
   DanoInimigo: 10
   Player: {fileID: 1078020892}
   isAlive: 0
   rb: {fileID: 0}
   knockback: 3
   knockbackup: 2
-  AgroRange: 100
+  AgroRange: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1464,11 +1464,10 @@ GameObject:
   - component: {fileID: 176687483}
   - component: {fileID: 176687482}
   - component: {fileID: 176687481}
-  - component: {fileID: 176687485}
   - component: {fileID: 176687484}
   m_Layer: 6
   m_Name: GuerreiroSkull
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1481,11 +1480,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176687478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 157.97, y: 2.77, z: 0}
+  m_LocalPosition: {x: 13.55, y: 1.4, z: 0}
   m_LocalScale: {x: 11, y: 11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1066649354}
+  - {fileID: 1648549699}
   m_Father: {fileID: 740438789}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1553,7 +1553,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 20.38413
+  m_Mass: 24.253967
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2.5
@@ -1575,7 +1575,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.133786, y: -0.19820035}
+  m_Offset: {x: 0.16761234, y: -0.16557866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1586,7 +1586,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29890716, y: 0.56359935}
+  m_Size: {x: 0.31875384, y: 0.6288427}
   m_EdgeRadius: 0
 --- !u!95 &176687483
 Animator:
@@ -1617,26 +1617,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 176687478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74570b337ca5e041b420b5cc50e75f8, type: 3}
+  m_Script: {fileID: 11500000, guid: b66256003f46f4a4f87e57a1f6873c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  deathEffect: {fileID: 0}
-  isInvulnerable: 0
---- !u!114 &176687485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176687478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e90440ff9066e941944531a8c755c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1078020892}
-  isFlipped: 0
+  MaxHP: 50
+  DanoInimigo: 15
+  Player: {fileID: 1078020892}
+  isAlive: 0
+  rb: {fileID: 0}
+  knockback: 3
+  knockbackup: 2
+  AgroRange: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  barraVerde: {fileID: 1493087831}
+  objetoBarra: {fileID: 1066649353}
+  SpeedMov: 4
+  JumpSpeed: 0
+  CurrentHP: 0
+  anim: {fileID: 176687483}
+  boxcollider: {fileID: 176687482}
+  playerInRange: 0
+  distDoPlayer: 0
+  meleeRange: {fileID: 1648549699}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  circle: {fileID: 1648549700}
 --- !u!1 &205407177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,7 +2135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d4002191b0efc4b9eaaf8cc118ed17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 20
+  MaxHP: 40
   DanoInimigo: 8
   Player: {fileID: 1078020892}
   isAlive: 0
@@ -10294,7 +10302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 530658268}
   - component: {fileID: 530658269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerDamage
   m_TagString: Trigger
   m_Icon: {fileID: 0}
@@ -10453,6 +10461,54 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &545419096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545419097}
+  - component: {fileID: 545419098}
+  m_Layer: 11
+  m_Name: MeleeRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &545419097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545419096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.212, y: -0.055, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 848836915}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &545419098
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545419096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13515069, y: -0.14678203}
+  serializedVersion: 2
+  m_Radius: 0.5353918
 --- !u!1 &578583665
 GameObject:
   m_ObjectHideFlags: 0
@@ -13069,6 +13125,7 @@ GameObject:
   - component: {fileID: 848836916}
   - component: {fileID: 848836919}
   - component: {fileID: 848836918}
+  - component: {fileID: 848836920}
   m_Layer: 6
   m_Name: Skull
   m_TagString: Inimigo
@@ -13084,11 +13141,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848836914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.7, y: 1.4, z: 0}
+  m_LocalPosition: {x: 67.6, y: 0.17, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1382791231}
+  - {fileID: 545419097}
   m_Father: {fileID: 740438789}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13211,6 +13269,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &848836920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848836914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a12c3a913076c4ebe8fd8075530b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 40
+  DanoInimigo: 10
+  Player: {fileID: 1078020892}
+  isAlive: 0
+  rb: {fileID: 0}
+  knockback: 3
+  knockbackup: 2
+  AgroRange: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  barraVerde: {fileID: 1768881987}
+  objetoBarra: {fileID: 1382791230}
+  SpeedMov: 4
+  JumpSpeed: 0
+  CurrentHP: 0
+  anim: {fileID: 848836916}
+  boxcollider: {fileID: 848836918}
+  playerInRange: 0
+  distDoPlayer: 0
+  meleeRange: {fileID: 545419097}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  circle: {fileID: 545419098}
 --- !u!1 &856873430
 GameObject:
   m_ObjectHideFlags: 0
@@ -15008,7 +15103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b90bd2d16c8df941b0d543c68fa4e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VidaMax: 20
+  VidaMax: 30
   VidaAtual: 0
   EnemyLayer:
     serializedVersion: 2
@@ -22934,7 +23029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514788040}
   - component: {fileID: 1514788041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LIFEBAR Vermelha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23509,6 +23604,54 @@ Transform:
   m_Father: {fileID: 252909341}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1648549698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648549699}
+  - component: {fileID: 1648549700}
+  m_Layer: 6
+  m_Name: MeleeRange2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1648549699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648549698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 176687479}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1648549700
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648549698}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.15094255, y: -0.19160917}
+  serializedVersion: 2
+  m_Radius: 0.2604972
 --- !u!1 &1685060197
 GameObject:
   m_ObjectHideFlags: 0
@@ -24682,7 +24825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876533061}
   - component: {fileID: 1876533062}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LIFEBAR Verde
   m_TagString: Untagged
   m_Icon: {fileID: 0}

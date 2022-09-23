@@ -74,11 +74,6 @@ public class Arqueiro : Enemy
 
 
     }
-    void StopChasePlayer()
-    {
-        anim.SetBool("IsRunning", false);
-        rb.velocity = new Vector2(0, -1);
-    }
     void Spawn()
     {
         if (Flag == true)

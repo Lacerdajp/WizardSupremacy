@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skull : Enemy
+public class SkullGuuerreiro : Enemy
 {
     private float TempoAtaque;
     [SerializeField] Transform meleeRange;
@@ -39,18 +39,17 @@ public class Skull : Enemy
     public void MeleeAttack()
     {
         //animacao
-        
+
         //detectar inimigos
         Collider2D[] hitenemies = Physics2D.OverlapCircleAll(meleeRange.position, circle.GetComponent<CircleCollider2D>().radius, PlayerLayer);
         //danificando eles
-        
+
         foreach (Collider2D player in hitenemies)
         {
-            
+
             Debug.Log("Tomando Dano");
             player.GetComponent<PlayerHP>().GetDamage(getDanoInimigo());
         }
         TempoAtaque = 2;
     }
 }
-
