@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkullGuuerreiro : Enemy
@@ -12,7 +13,7 @@ public class SkullGuuerreiro : Enemy
     public override void Start()
     {
         base.Start();
-        TempoAtaque = 2;
+        TempoAtaque = 4;
 
     }
 
@@ -31,7 +32,6 @@ public class SkullGuuerreiro : Enemy
             anim.SetBool("IsRunning", false);
             if (TempoAtaque < 0)
             {
-                anim.SetTrigger("Attack");
                 MeleeAttack();
             }
         }
@@ -39,17 +39,19 @@ public class SkullGuuerreiro : Enemy
     public void MeleeAttack()
     {
         //animacao
-
+        anim.SetTrigger("Attack");
         //detectar inimigos
-        Collider2D[] hitenemies = Physics2D.OverlapCircleAll(meleeRange.position, circle.GetComponent<CircleCollider2D>().radius, PlayerLayer);
+        Collider2D hitenemies = Physics2D.OverlapCircle(meleeRange.position, circle.GetComponent<CircleCollider2D>().radius, PlayerLayer);
         //danificando eles
-
-        foreach (Collider2D player in hitenemies)
+        if (hitenemies.CompareTag("Player"))
         {
-
-            Debug.Log("Tomando Dano");
-            player.GetComponent<PlayerHP>().GetDamage(getDanoInimigo());
+            if (TempoAtaque < 0)
+            {
+                Debug.Log("Tomando Dano");
+                hitenemies.GetComponent<PlayerHP>().GetDamage(getDanoInimigo());
+                TempoAtaque = 4;
+            }
         }
-        TempoAtaque = 2;
+
     }
 }
